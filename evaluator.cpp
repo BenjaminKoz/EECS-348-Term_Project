@@ -18,6 +18,7 @@ double eval(int x, int y, char oper) {
         case 45: //- operator
             return x - y;
         case 47: //'/' operator
+            if(y == 0) throw "Divide by zero error";
             return x / y;
         case 94: //^ operator
             return pow(x,y);
@@ -26,7 +27,7 @@ double eval(int x, int y, char oper) {
     }
 }
 
-/*
+/* Main function used for testing functionality
 int main() {
     double ans = eval(2,2,'%');
     std::cout << ans;
