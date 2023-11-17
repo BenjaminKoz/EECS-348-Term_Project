@@ -3,25 +3,27 @@
 #include <stack>
 #include <cctype>
 #include <math.h>
-
-
 using namespace std;
 
+//Function for defining operators precedence according to pemdas
 int pemdas(char op){
     if (op == '^') return 3;
     if (op == '*' || op == '/' || op == '%') return 2;
     if (op == '+' || op == '-') return 1;
     return 0;
 }
-
+//Function for determining if a character is an operator
 bool isoperator(char op) {
     return (op == '+' || op == '-' || op == '*' || op == '/' || op == '^' || op == '%');
 }
 
+//The parser function which handles most of the work of the program
 double parser(const string& expression){
+    //creates two stacks for keeping track of numbers and operators
     stack<double> numbers;
     stack<char> operators;
-    
+
+    //iterates through the input string
     for (int i = 0; i < expression.size(); i++){
         if (isspace(expression[i])){
             continue;
@@ -82,6 +84,7 @@ double parser(const string& expression){
         }
         
     } 
+    //when done iterating it goes through the stacks and gets the final value
     while (!operators.empty()){
         double second = numbers.top();
         numbers.pop();
@@ -91,9 +94,10 @@ double parser(const string& expression){
         operators.pop();
         numbers.push(eval(first, second, op);
     }
-
+    //returns the final value
     return numbers.top();
 }
+/*
 int main() {
     string expression;
     cout << "Input the expression: ";
@@ -101,4 +105,5 @@ int main() {
     parser(expression);
     return 0;
 }
+*/
 
