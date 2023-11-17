@@ -67,7 +67,7 @@ double parser(const string& expression){
                 numbers.pop();
                 char op = operators.top();
                 operators.pop();
-                numbers.push(eval(first, second, op);
+                numbers.push(eval(first, second, op));
             } 
             operators.pop();
         } else if (isoperator(expression[i])) {
@@ -78,7 +78,7 @@ double parser(const string& expression){
                 numbers.pop();
                 char op = operators.top();
                 operators.pop();
-                numbers.push(eval(first, second, op);
+                numbers.push(eval(first, second, op));
             }
             operators.push(expression[i]);
         }
@@ -92,7 +92,7 @@ double parser(const string& expression){
         numbers.pop();
         char op = operators.top();
         operators.pop();
-        numbers.push(eval(first, second, op);
+        numbers.push(eval(first, second, op));
     }
     //returns the final value
     return numbers.top();
