@@ -199,6 +199,8 @@ int main(){
                 continue;
             } else if (inputString[i] == '+' && inputString[i+1] == 'p' || inputString[i+1] == 'e' || isdigit(inputString[i+1])){
                 continue;
+            } else if (inputString[i] == 'e'){
+                operands++;
             } else if (isdigit(inputString[i])){
                 while (i < inputString.size() && isdigit(inputString[i])){
                     i++;
