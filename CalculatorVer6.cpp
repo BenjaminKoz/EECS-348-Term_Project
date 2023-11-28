@@ -107,7 +107,7 @@ double parser(const string& expression){
             }
             i--;
             if (numbers.empty()) numbers.push(num);
-            else if (!(isoperator(expression[startIndex-1]) || (isoperator(expression[startIndex - 2]) && isspace(expression[startIndex-1]))) && !(isoperator(expression[i+1]) || (isoperator(expression[i+2]) && isspace(expression[i+1]))) && ((i+1) != expression.size())){
+            else if (!(isoperator(expression[startIndex-1]) || expression[startIndex - 1] == '(' || ((isoperator(expression[startIndex - 2]) || expression[startIndex - 2] == '(') && isspace(expression[startIndex-1]))) && !(isoperator(expression[i+1]) || expression[i+1] == ')' || ((isoperator(expression[i+2]) || expression[i+2] == ')') && isspace(expression[i+1]))) && ((i+1) != expression.size())){
                 throw "Operands without operator";
             }
             numbers.push(num);
