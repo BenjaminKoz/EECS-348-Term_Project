@@ -106,7 +106,8 @@ double parser(const string& expression){
                 i++;
             }
             i--;
-            if (!(isoperator(expression[startIndex-1]) || (isoperator(expression[startIndex - 2]) && isspace(expression[startIndex-1]))) && !(isoperator(expression[i+1]) || (isoperator(expression[i+2]) && isspace(expression[i+1]))) && ((i+1) != expression.size())){
+            if (numbers.empty()) numbers.push(num);
+            else if (!(isoperator(expression[startIndex-1]) || (isoperator(expression[startIndex - 2]) && isspace(expression[startIndex-1]))) && !(isoperator(expression[i+1]) || (isoperator(expression[i+2]) && isspace(expression[i+1]))) && ((i+1) != expression.size())){
                 throw "Operands without operator";
             }
             numbers.push(num);
